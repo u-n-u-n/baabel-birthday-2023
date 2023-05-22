@@ -1,8 +1,12 @@
+import GlobalStyle from './globalStyle'
 import LandingPage from './pages/LandingPage'
 
 const App = () => {
   return (
-    <LandingPage />
+    <>
+      <GlobalStyle />
+      <LandingPage />
+    </>
   )
 }
 
