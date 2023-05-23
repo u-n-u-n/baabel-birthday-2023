@@ -1,11 +1,32 @@
+import { useTheme } from 'styled-components'
+import { useMediaQuery } from 'styled-breakpoints/use-media-query'
+
 import Card from './components/Card'
-import { Wrapper, CardList, Header } from './styled'
+import Tag from './components/Tag'
+import { Wrapper, Header, TagList, CardList } from './styled'
 
 const LandingPage = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme!.breakpoints.down('sm'))
+  const isTablet = useMediaQuery(theme!.breakpoints.between('sm', 'lg'))
+
   return (
     <Wrapper>
       <Header />
+      <TagList>
+        <Tag gift='salad' amount={100} />
+        <Tag gift='bomb' amount={90} />
+        <Tag gift='microphone' amount={80} />
+        <Tag gift='dacapo' amount={70} />
+        <Tag gift='schneider' amount={60} />
+        <Tag gift='cute_potion' amount={50} />
+        <Tag gift='boild_egg_suki' amount={40} />
+        <Tag gift='baabae_pillow' amount={30} />
+        <Tag gift='sunflower' amount={20} />
+      </TagList>
       <CardList
+        minWidth={80}
+        colCount={isMobile ? 1 : isTablet ? 2 : 3}
         items={[
           <Card
             gift='salad'

@@ -9,19 +9,43 @@ export const Wrapper = styled.div`
   background-position-x: center;
 `
 
-export const Header = styled.div `
+export const Header = styled.div`
   height: 350px;
-  background-color: #F8CBCB;
+  background-color: #f8cbcb;
+  margin-bottom: 32px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-bottom: 16px;
+  }
+`
+
+export const TagList = styled.div`
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 32px;
+  gap: 12px;
+  padding: 4px 28px;
+  overflow-x: scroll;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    margin-bottom: 16px;
+  }
 `
 
 export const CardList = styled(ReactMasonryList)`
-  max-width: 1146px;
+  max-width: 1194px;
   column-gap: 24px !important;
   row-gap: 10.5px !important;
   margin: auto;
-  padding: 32px 0;
+  padding: 0 24px 32px;
 
   & > div {
     height: fit-content;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    row-gap: 10px !important;
   }
 `

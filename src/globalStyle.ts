@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     font-family: 'MN Luk Chup', sans-serif;
     margin: 0;

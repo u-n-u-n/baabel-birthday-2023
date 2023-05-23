@@ -2488,6 +2488,11 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
 
+styled-breakpoints@^12.0.3:
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/styled-breakpoints/-/styled-breakpoints-12.0.3.tgz#3bf500489800892e3b3fffa8a0783b05a697ebe8"
+  integrity sha512-xPwZp3EpFSR9b43WMCF8MmJU2W1zNyq9sibE3GIq8NHMclXhIh81uXPPHLG31+dLIhEWNKMGRfeCKBJeq7D8zA==
+
 styled-components@^6.0.0-rc.1:
   version "6.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.0.0-rc.1.tgz#e7d7c9f8301df7e4877c1c6a1c02bfbd7f64bc07"
