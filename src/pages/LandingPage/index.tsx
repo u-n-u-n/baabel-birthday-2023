@@ -1,9 +1,17 @@
 import { useTheme } from 'styled-components'
 import { useMediaQuery } from 'styled-breakpoints/use-media-query'
 
-import Card from './components/Card'
 import Tag from './components/Tag'
-import { Wrapper, Header, TagList, CardList } from './styled'
+import Card from './components/Card'
+
+import {
+  Wrapper,
+  Header,
+  TagList,
+  CardList,
+  ButtonWrapper,
+  StyledButton,
+} from './styled'
 
 const LandingPage = () => {
   const theme = useTheme()
@@ -84,6 +92,9 @@ const LandingPage = () => {
           />,
         ]}
       />
+      <ButtonWrapper>
+        <StyledButton icon='plus'>เขียนคำอวยพร</StyledButton>
+      </ButtonWrapper>
     </Wrapper>
   )
 }

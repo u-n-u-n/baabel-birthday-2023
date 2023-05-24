@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import ReactMasonryList from 'react-masonry-list'
 
 import background from '../../assets/images/background.png'
+import Button from '../../components/Button'
 
 export const Wrapper = styled.div`
   min-height: 100vh;
@@ -39,7 +40,7 @@ export const CardList = styled(ReactMasonryList)`
   column-gap: 24px !important;
   row-gap: 10.5px !important;
   margin: auto;
-  padding: 0 24px 32px;
+  padding: 0 24px;
 
   & > div {
     height: fit-content;
@@ -48,4 +49,16 @@ export const CardList = styled(ReactMasonryList)`
   ${({ theme }) => theme.breakpoints.down('sm')} {
     row-gap: 10px !important;
   }
+`
+
+export const ButtonWrapper = styled.div`
+  width: 250px;
+  padding: 16px 0 32px;
+  margin: auto;
+  position: sticky;
+  bottom: 0;
+`
+
+export const StyledButton = styled(Button)`
+  box-shadow: 4px 4px 20px 10px rgba(246, 160, 160, 0.3);
 `
