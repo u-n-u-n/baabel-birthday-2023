@@ -52,7 +52,7 @@ export const CardList = styled(ReactMasonryList)`
 `
 
 export const ButtonWrapper = styled.div`
-  width: 250px;
+  max-width: 250px;
   padding: 16px 0 32px;
   margin: auto;
   position: sticky;

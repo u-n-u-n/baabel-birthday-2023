@@ -28,7 +28,7 @@ const LandingPage = () => {
         <Tag gift='dacapo' amount={70} />
         <Tag gift='schneider' amount={60} />
         <Tag gift='cute_potion' amount={50} />
-        <Tag gift='boild_egg_suki' amount={40} />
+        <Tag gift='boiled_egg_suki' amount={40} />
         <Tag gift='baabae_pillow' amount={30} />
         <Tag gift='sunflower' amount={20} />
       </TagList>
@@ -73,7 +73,7 @@ const LandingPage = () => {
             datetime={new Date('2023-01-01 19:00:00')}
           />,
           <Card
-            gift='boild_egg_suki'
+            gift='boiled_egg_suki'
             title='น้องบาแบ๊ะตัวจิ๋ว'
             description='แดนแสนวิเศษตราว่ายไปซีเรียสนักพันธุ์นั้นได้ไหมคะ ไปสู่ดินแดนแสนวิเศษแค่มองข้ามน้ำข้ามฟ้าข้ามกำแพงแห่งความรู้สึกรัก ไปสู่ดินแดนแสนวิเศษแค่เพียงหัวใจรู้มาสะบัดปล่อยใจคงต้องฝันสักเท่าไหร่คงจะยังไง แดนแสนวิเศษตราว่ายไปซีเรียสนักพันธุ์นั้นได้ไหมคะ ไปสู่ดินแดนแสนวิเศษแค่มองข้ามน้ำข้ามฟ้าข้ามกำแพงแห่งความรู้ คงต้องฝันสักเท่าไหร่'
             datetime={new Date('2023-01-01 19:00:00')}

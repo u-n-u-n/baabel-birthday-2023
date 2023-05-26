@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     rgb(255, 186, 186) 100%
   );
   border-radius: 100px;
-  padding: 4px 0;
+  padding: 8px 0;
   cursor: pointer;
 
   &:hover {
@@ -25,5 +25,6 @@ export const Icon = styled.img`
 export const Text = styled.div.attrs({
   className: 'eclair-font',
 })`
+  font-size: 16px;
   color: #ffffff;
 `

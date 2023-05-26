@@ -18,10 +18,42 @@ import boiledEddSukiImg from './assets/images/boiled_egg_suki.png'
 import baabaePillowImg from './assets/images/baabae_pillow.png'
 import sunflowerImg from './assets/images/sunflower.png'
 
-export const GIFT_CONFIG = {
+interface GiftConfigValueType {
+  baabaeImg: string
+  giftImg: string
+  title: string
+  selectedTitle?: string
+  description: string
+  colors: {
+    text: string
+    border: string
+    buttonLeft: string
+    buttonRight: string
+    mainBackground: string
+    tagBackground: string
+    selectBackground: string
+  }
+}
+
+interface GiftConfigType {
+  salad: GiftConfigValueType
+  bomb: GiftConfigValueType
+  microphone: GiftConfigValueType
+  dacapo: GiftConfigValueType
+  schneider: GiftConfigValueType
+  cute_potion: GiftConfigValueType
+  boiled_egg_suki: GiftConfigValueType
+  baabae_pillow: GiftConfigValueType
+  sunflower: GiftConfigValueType
+}
+
+export const GIFT_CONFIG: GiftConfigType = {
   salad: {
     baabaeImg: baabaeSaladImg,
     giftImg: saladImg,
+    title: 'ผักสลัด',
+    description:
+      'ผักสลัดหน้าโบสถ์ที่ปลูกและปรุงรสโดยนายน้อย\nให้ของขวัญเป็นผักเพื่อสานฝันสร้างตู้สลัดบาร์ให้บาเบล',
     colors: {
       text: '#487D45',
       border: '#6BBA69',
@@ -35,6 +67,10 @@ export const GIFT_CONFIG = {
   bomb: {
     baabaeImg: baabaeBombImg,
     giftImg: bombImg,
+    title: 'ระเบิด',
+    selectedTitle: 'ระเบิดบาเบล Beam!',
+    description:
+      'บาเบลผู้ระเบิดทุกอย่างบนโลกใบนี้ แต่ระเบิดที่มีพลังทำลายล้าง\nมากที่สุดคือระเบิดความน่ารักของตัวเอง บาเบลบีม!!!',
     colors: {
       text: '#DD6F63',
       border: '#EE8B81',
@@ -48,6 +84,9 @@ export const GIFT_CONFIG = {
   microphone: {
     baabaeImg: baabaeMicrophoneImg,
     giftImg: microphoneImg,
+    title: 'ไมโครโฟน',
+    description:
+      'ไมโครโฟนขยายเสียงไพเราะแบบหูเคลือบทอง\nอยากให้บาเบลมั่นใจในเสียงตัวเอง เพราะเสียงบาเบลมีเสน่ห์มาก',
     colors: {
       text: '#4279D1',
       border: '#5D8ACF',
@@ -61,6 +100,9 @@ export const GIFT_CONFIG = {
   dacapo: {
     baabaeImg: baabaeDacapoImg,
     giftImg: dacapoImg,
+    title: 'น้องเจี๊ยบ',
+    description:
+      'ให้น้องเจี๊ยบเป็นของขวัญ ดากะโปะจะสามารถเป็นได้ทั้งเพื่อน\nน้องชาย และอาหารสำรอง ดื้อเมื่อไหร่จับกินได้เลย',
     colors: {
       text: '#E8A115',
       border: '#E9B738',
@@ -74,6 +116,9 @@ export const GIFT_CONFIG = {
   schneider: {
     baabaeImg: baabaeSchneiderImg,
     giftImg: schneiderImg,
+    title: 'พี่ชไน',
+    description:
+      'ให้ชไนเดอร์เป็นของขวัญ จารย์จะสามารถเป็น Comfort zone\nให้บาเบลได้ และสามารถเป็นอาหารสำรองได้เช่นกัน',
     colors: {
       text: '#976BCC',
       border: '#A783D2',
@@ -87,6 +132,10 @@ export const GIFT_CONFIG = {
   cute_potion: {
     baabaeImg: baabaeCutePotionImg,
     giftImg: cutePotionImg,
+    title: 'โพชั่น',
+    selectedTitle: 'โพชั่นความน่ารัก',
+    description:
+      'ส่งโพชั่นความน่ารักให้บาเบล ถึงแม้ว่าจะน่ารักมากอยู่แล้วก็ตาม\nสิ่งนี้จะเพิ่มความน่ารักกะไม่ให้ใครได้ลืมตาอ้าปากไปเลย',
     colors: {
       text: '#F56C9D',
       border: '#E882A6',
@@ -97,9 +146,12 @@ export const GIFT_CONFIG = {
       selectBackground: '#FFF1F6',
     },
   },
-  boild_egg_suki: {
+  boiled_egg_suki: {
     baabaeImg: baabaeBoiledEggSukiImg,
     giftImg: boiledEddSukiImg,
+    title: 'สุกี้ไข่ต้ม',
+    description:
+      'สุกี้ไข่ต้มตัวนี้สามารถช่วยบาเบลเฝ้าโบสถ์ได้ น้องไม่ดุ\nน่ารักใจดี และช่วยอยู่เป็นเพื่อนบาแบ๊ะในวันที่นายน้อยไม่ว่างได้',
     colors: {
       text: '#E9882F',
       border: '#ED9E57',
@@ -113,6 +165,9 @@ export const GIFT_CONFIG = {
   baabae_pillow: {
     baabaeImg: baabaeBaabaePillowImg,
     giftImg: baabaePillowImg,
+    title: 'หมอนแบ๊ะ',
+    description:
+      'นายน้อยที่ชอบนอน หมอนบาเบ๊ะจะทำให้บาเบลหลับสบายทั้งวัน\nไม่ว่าจะนอนเช้า กลางวัน เย็น หรือตลอดทั้งวัน~',
     colors: {
       text: '#4BA9AF',
       border: '#53BCC2',
@@ -126,6 +181,10 @@ export const GIFT_CONFIG = {
   sunflower: {
     baabaeImg: baabaeSunflowerImg,
     giftImg: sunflowerImg,
+    title: 'ทานตะวัน',
+    selectedTitle: 'ดอกทานตะวัน',
+    description:
+      'มาปลูกดอกทานตะวันที่บาเบลชอบให้เต็มโบสถ์กัน~\nให้นายน้อยสดใสเหมือนดอกทานตะวันรับแสงอาทิตย์เลย',
     colors: {
       text: '#E79D0E',
       border: '#EEB13B',
