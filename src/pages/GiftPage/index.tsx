@@ -19,10 +19,15 @@ import {
 
 interface GiftPageProps {
   selectedGift: keyof typeof GIFT_CONFIG
+  setSelectedGift: (selectedGift: keyof typeof GIFT_CONFIG) => void
   setPage: (page: string) => void
 }
 
-const GiftPage = ({ selectedGift, setPage }: GiftPageProps) => {
+const GiftPage = ({
+  selectedGift,
+  setSelectedGift,
+  setPage,
+}: GiftPageProps) => {
   return (
     <Wrapper color={GIFT_CONFIG[selectedGift].colors.mainBackground}>
       <div>
@@ -57,6 +62,7 @@ const GiftPage = ({ selectedGift, setPage }: GiftPageProps) => {
                 selectedBackgroundColor={
                   GIFT_CONFIG[gift].colors.selectBackground
                 }
+                onClick={() => setSelectedGift(gift)}
               >
                 <Gift src={GIFT_CONFIG[gift].giftImg} alt={gift} />
                 <GiftName>{GIFT_CONFIG[gift].title}</GiftName>
