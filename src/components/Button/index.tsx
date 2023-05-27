@@ -12,11 +12,12 @@ interface ButtonProps {
   className?: string
   children: ReactNode
   icon?: keyof typeof ICON_MAPPER
+  onClick?: () => void
 }
 
-const Button = ({ className, children, icon }: ButtonProps) => {
+const Button = ({ className, children, icon, onClick }: ButtonProps) => {
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} onClick={onClick}>
       {icon ? <Icon src={ICON_MAPPER[icon]} alt={icon} /> : null}
       <Text>{children}</Text>
     </Wrapper>

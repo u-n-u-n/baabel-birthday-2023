@@ -19,9 +19,10 @@ import {
 
 interface GiftPageProps {
   selectedGift: keyof typeof GIFT_CONFIG
+  setPage: (page: string) => void
 }
 
-const GiftPage = ({ selectedGift }: GiftPageProps) => {
+const GiftPage = ({ selectedGift, setPage }: GiftPageProps) => {
   return (
     <Wrapper color={GIFT_CONFIG[selectedGift].colors.mainBackground}>
       <div>
@@ -67,6 +68,7 @@ const GiftPage = ({ selectedGift }: GiftPageProps) => {
           <BackButton
             color={GIFT_CONFIG[selectedGift].colors.buttonLeft}
             hoverColor={GIFT_CONFIG[selectedGift].colors.selectBackground}
+            onClick={() => setPage('landingPage')}
           >
             กลับหน้าหลัก
           </BackButton>
@@ -75,6 +77,7 @@ const GiftPage = ({ selectedGift }: GiftPageProps) => {
               GIFT_CONFIG[selectedGift].colors.buttonLeft,
               GIFT_CONFIG[selectedGift].colors.buttonRight,
             ]}
+            onClick={() => setPage('wishPage')}
           >
             เลือกชิ้นนี้แหละ!
           </ConfirmButton>

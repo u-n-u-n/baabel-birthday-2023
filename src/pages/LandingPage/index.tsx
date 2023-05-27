@@ -13,7 +13,11 @@ import {
   StyledButton,
 } from './styled'
 
-const LandingPage = () => {
+interface LandingPageProps {
+  setPage: (page: string) => void
+}
+
+const LandingPage = ({ setPage }: LandingPageProps) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme!.breakpoints.down('sm'))
   const isTablet = useMediaQuery(theme!.breakpoints.between('sm', 'lg'))
@@ -93,7 +97,9 @@ const LandingPage = () => {
         ]}
       />
       <ButtonWrapper>
-        <StyledButton icon='plus'>เขียนคำอวยพร</StyledButton>
+        <StyledButton icon='plus' onClick={() => setPage('giftPage')}>
+          เขียนคำอวยพร
+        </StyledButton>
       </ButtonWrapper>
     </Wrapper>
   )
