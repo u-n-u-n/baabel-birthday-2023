@@ -12,7 +12,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {/* <LandingPage /> */}
-      <GiftPage gift='salad' />
+      <GiftPage selectedGift='salad' />
     </ThemeProvider>
   )
 }
