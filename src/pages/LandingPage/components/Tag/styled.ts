@@ -10,8 +10,9 @@ export const Wrapper = styled.div<WrapperProps>`
   width: fit-content;
   padding: 4px 16px 4px 12px;
   border-radius: 100px;
-  outline: 4px solid rgba(255, 255, 255, 0.7);
+  border: 4px solid rgba(255, 255, 255, 0.7);
   background-color: ${(props) => props.color};
+  background-clip: padding-box;
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 4px 12px 4px 8px;

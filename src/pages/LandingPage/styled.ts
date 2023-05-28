@@ -25,7 +25,7 @@ export const TagList = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto 32px;
-  gap: 12px;
+  gap: 4px;
   padding: 4px 28px;
   overflow-x: scroll;
 
