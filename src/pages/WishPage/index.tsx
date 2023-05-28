@@ -1,5 +1,72 @@
-const WishPage = () => {
-  return <h1>WishPage</h1>
+import { GIFT_CONFIG } from '../../configs'
+
+import {
+  Wrapper,
+  Title,
+  Baabae,
+  SenderName,
+  WishBox,
+  FormWrapper,
+  CharacterLimit,
+  ButtonWrapper,
+  BackButton,
+  ConfirmButton,
+} from './styled'
+
+interface WishPageProps {
+  selectedGift: keyof typeof GIFT_CONFIG
+  setPage: (page: string) => void
+}
+
+const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
+  return (
+    <Wrapper color={GIFT_CONFIG[selectedGift].colors.mainBackground}>
+      <div>
+        <Title color={GIFT_CONFIG[selectedGift].colors.text}>
+          เขียนคำอวยพรให้บาเบล
+        </Title>
+        <Baabae
+          src={GIFT_CONFIG[selectedGift].baabaeImg}
+          alt={'Baabae hold ' + selectedGift}
+        />
+        <FormWrapper>
+          <SenderName
+            type='text'
+            placeholder='ชื่ออะไรฮะ...'
+            color={GIFT_CONFIG[selectedGift].colors.border}
+            shadowColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
+          />
+          <WishBox
+            rows={7}
+            placeholder='เขียนอวยพรตรงนี้เลย...'
+            color={GIFT_CONFIG[selectedGift].colors.border}
+            shadowColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
+          ></WishBox>
+          <CharacterLimit color={GIFT_CONFIG[selectedGift].colors.border}>
+            คำอวยพร 0/500 ตัวอักษร
+          </CharacterLimit>
+          <ButtonWrapper>
+            <BackButton
+              color={GIFT_CONFIG[selectedGift].colors.buttonLeft}
+              hoverColor={GIFT_CONFIG[selectedGift].colors.selectBackground}
+              onClick={() => setPage('giftPage')}
+            >
+              ย้อนกลับ
+            </BackButton>
+            <ConfirmButton
+              color={[
+                GIFT_CONFIG[selectedGift].colors.buttonLeft,
+                GIFT_CONFIG[selectedGift].colors.buttonRight,
+              ]}
+              onClick={() => setPage('landingPage')}
+            >
+              ส่งคำอวยพร
+            </ConfirmButton>
+          </ButtonWrapper>
+        </FormWrapper>
+      </div>
+    </Wrapper>
+  )
 }
 
 export default WishPage

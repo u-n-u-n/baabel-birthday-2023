@@ -27,7 +27,7 @@ const App = () => {
           setPage={setPage}
         />
       ) : page === 'wishPage' ? (
-        <WishPage />
+        <WishPage selectedGift={selectedGift} setPage={setPage} />
       ) : null}
     </ThemeProvider>
   )
