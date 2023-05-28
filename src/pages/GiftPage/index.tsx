@@ -1,4 +1,6 @@
 import { GIFT_CONFIG } from '../../configs'
+import lambLeftHand from '../../assets/images/lamb_lefthand.png'
+import lambRightHand from '../../assets/images/lamb_righthand.png'
 
 import {
   Wrapper,
@@ -15,6 +17,8 @@ import {
   BackButton,
   ConfirmButton,
   ButtonWrapper,
+  LambLeftHand,
+  LambRightHand,
 } from './styled'
 
 interface GiftPageProps {
@@ -54,20 +58,29 @@ const GiftPage = ({
         </GiftDescription>
         <BoxList>
           {(Object.keys(GIFT_CONFIG) as (keyof typeof GIFT_CONFIG)[]).map(
-            (gift) => (
-              <Box
-                key={gift}
-                selected={gift === selectedGift}
-                selectedBorderColor={GIFT_CONFIG[gift].colors.border}
-                selectedBackgroundColor={
-                  GIFT_CONFIG[gift].colors.selectBackground
-                }
-                onClick={() => setSelectedGift(gift)}
-              >
-                <Gift src={GIFT_CONFIG[gift].giftImg} alt={gift} />
-                <GiftName>{GIFT_CONFIG[gift].title}</GiftName>
-              </Box>
-            )
+            (gift) => {
+              const selected = gift === selectedGift
+              return (
+                <Box
+                  key={gift}
+                  selected={selected}
+                  selectedBorderColor={GIFT_CONFIG[gift].colors.border}
+                  selectedBackgroundColor={
+                    GIFT_CONFIG[gift].colors.selectBackground
+                  }
+                  onClick={() => setSelectedGift(gift)}
+                >
+                  <Gift src={GIFT_CONFIG[gift].giftImg} alt={gift} />
+                  <GiftName>{GIFT_CONFIG[gift].title}</GiftName>
+                  {selected ? (
+                    <>
+                      <LambLeftHand src={lambLeftHand} alt={lambLeftHand} />
+                      <LambRightHand src={lambRightHand} alt={lambRightHand} />
+                    </>
+                  ) : null}
+                </Box>
+              )
+            }
           )}
         </BoxList>
         <ButtonWrapper>

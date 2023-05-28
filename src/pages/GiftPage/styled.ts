@@ -130,6 +130,7 @@ export const Box = styled.div<BoxProps>`
   border: ${(props) => (props.selected ? 2 : 1)}px solid
     ${(props) => (props.selected ? props.selectedBorderColor : '#eaeaea')};
   padding: 12px 16px;
+  position: relative;
   cursor: pointer;
 
   &:hover {
@@ -190,4 +191,18 @@ export const GiftName = styled.div.attrs({
   line-height: 23px;
   font-weight: 300;
   color: #2d2d2d;
+`
+
+export const LambHand = styled.img`
+  width: 20px;
+  position: absolute;
+  bottom: -6px;
+`
+
+export const LambLeftHand = styled(LambHand)`
+  left: -6px;
+`
+
+export const LambRightHand = styled(LambHand)`
+  right: -6px;
 `
