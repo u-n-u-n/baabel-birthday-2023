@@ -26,6 +26,8 @@ interface BackButtonProps {
 
 interface ConfirmButtonProps {
   color: [string, string]
+  disabled: boolean
+  disabledColor: string
 }
 
 const getFormFieldStyles = (props: FormFieldProps) => css`
@@ -146,13 +148,14 @@ export const BackButton = styled(Button)<BackButtonProps>`
 export const ConfirmButton = styled(Button)<ConfirmButtonProps>`
   width: 100%;
   margin: auto;
-  background: linear-gradient(
-    90deg,
-    ${(props) => props.color[0]} 0%,
-    ${(props) => props.color[1]} 100%
-  );
+  background: ${(props) =>
+    props.disabled
+      ? props.disabledColor
+      : `linear-gradient(90deg, ${props.color[0]} 0%, ${props.color[1]} 100%)`};
+  cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 
   &:hover {
-    background: ${(props) => props.color[0]};
+    background: ${(props) =>
+      props.disabled ? props.disabledColor : `${props.color[0]}`};
   }
 `

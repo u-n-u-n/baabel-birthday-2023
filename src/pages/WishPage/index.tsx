@@ -1,4 +1,10 @@
-import { GIFT_CONFIG } from '../../configs'
+import { useState } from 'react'
+
+import {
+  GIFT_CONFIG,
+  MAX_SENDER_NAME_LENGTH,
+  MAX_WISH_LENGTH,
+} from '../../configs'
 
 import {
   Wrapper,
@@ -19,6 +25,15 @@ interface WishPageProps {
 }
 
 const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
+  const [senderName, setSenderName] = useState('')
+  const [wish, setWish] = useState('')
+
+  const onSubmit = () => {
+    if (senderName && wish) {
+      setPage('landingPage')
+    }
+  }
+
   return (
     <Wrapper color={GIFT_CONFIG[selectedGift].colors.mainBackground}>
       <div>
@@ -31,19 +46,26 @@ const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
         />
         <FormWrapper>
           <SenderName
+            maxLength={MAX_SENDER_NAME_LENGTH}
             type='text'
             placeholder='ชื่ออะไรฮะ...'
             color={GIFT_CONFIG[selectedGift].colors.border}
             shadowColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
+            value={senderName}
+            onChange={(e) => setSenderName(e.target.value)}
           />
           <WishBox
+            maxLength={MAX_WISH_LENGTH}
             rows={7}
             placeholder='เขียนอวยพรตรงนี้เลย...'
             color={GIFT_CONFIG[selectedGift].colors.border}
             shadowColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
-          ></WishBox>
+            onChange={(e) => setWish(e.target.value)}
+          >
+            {wish}
+          </WishBox>
           <CharacterLimit color={GIFT_CONFIG[selectedGift].colors.border}>
-            คำอวยพร 0/500 ตัวอักษร
+            คำอวยพร {wish.length}/{MAX_WISH_LENGTH} ตัวอักษร
           </CharacterLimit>
           <ButtonWrapper>
             <BackButton
@@ -58,7 +80,9 @@ const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
                 GIFT_CONFIG[selectedGift].colors.buttonLeft,
                 GIFT_CONFIG[selectedGift].colors.buttonRight,
               ]}
-              onClick={() => setPage('landingPage')}
+              disabled={!senderName || !wish}
+              disabledColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
+              onClick={onSubmit}
             >
               ส่งคำอวยพร
             </ConfirmButton>

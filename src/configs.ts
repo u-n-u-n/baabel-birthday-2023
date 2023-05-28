@@ -196,3 +196,7 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
 }
+
+export const MAX_SENDER_NAME_LENGTH = 30
+
+export const MAX_WISH_LENGTH = 500
