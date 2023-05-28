@@ -103,8 +103,9 @@ Error generating stack: `+i.message+`
   width: fit-content;
   padding: 4px 16px 4px 12px;
   border-radius: 100px;
-  outline: 4px solid rgba(255, 255, 255, 0.7);
+  border: 4px solid rgba(255, 255, 255, 0.7);
   background-color: ${e=>e.color};
+  background-clip: padding-box;
 
   ${({theme:e})=>e.breakpoints.down("sm")} {
     padding: 4px 12px 4px 8px;
@@ -211,7 +212,7 @@ Error generating stack: `+i.message+`
   display: flex;
   align-items: center;
   margin: 0 auto 32px;
-  gap: 12px;
+  gap: 4px;
   padding: 4px 28px;
   overflow-x: scroll;
 
