@@ -2,6 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
+    src: url('./assets/fonts/MN Luk Chup.ttf') format('truetype');
+    font-family: 'MN Luk Chup';
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
     src: url('./assets/fonts/MN Luk Chup Bold.ttf') format('truetype');
     font-family: 'MN Luk Chup';
     font-weight: 700;

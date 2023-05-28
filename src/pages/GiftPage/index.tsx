@@ -1,6 +1,4 @@
 import { GIFT_CONFIG } from '../../configs'
-import lambLeftHand from '../../assets/images/lamb_lefthand.png'
-import lambRightHand from '../../assets/images/lamb_righthand.png'
 
 import {
   Wrapper,
@@ -74,8 +72,14 @@ const GiftPage = ({
                   <GiftName>{GIFT_CONFIG[gift].title}</GiftName>
                   {selected ? (
                     <>
-                      <LambLeftHand src={lambLeftHand} alt={lambLeftHand} />
-                      <LambRightHand src={lambRightHand} alt={lambRightHand} />
+                      <LambLeftHand
+                        src='./assets/images/lamb_lefthand.png'
+                        alt='lamb left hand'
+                      />
+                      <LambRightHand
+                        src='./assets/images/lamb_righthand.png'
+                        alt='lamb right hand'
+                      />
                     </>
                   ) : null}
                 </Box>

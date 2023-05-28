@@ -1,11 +1,9 @@
 import { ReactNode } from 'react'
 
-import plusIcon from '../../assets/images/icon_plus.svg'
-
 import { Wrapper, Icon, Text } from './styled'
 
 const ICON_MAPPER = {
-  plus: plusIcon,
+  plus: './assets/images/icon_plus.svg',
 }
 
 interface ButtonProps {

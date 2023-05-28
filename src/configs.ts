@@ -1,23 +1,3 @@
-import baabaeSaladImg from './assets/images/baabae_salad.png'
-import baabaeBombImg from './assets/images/baabae_bomb.png'
-import baabaeMicrophoneImg from './assets/images/baabae_microphone.png'
-import baabaeDacapoImg from './assets/images/baabae_dacapo.png'
-import baabaeSchneiderImg from './assets/images/baabae_schneider.png'
-import baabaeCutePotionImg from './assets/images/baabae_cute_potion.png'
-import baabaeBoiledEggSukiImg from './assets/images/baabae_boiled_egg_suki.png'
-import baabaeBaabaePillowImg from './assets/images/baabae_baabae_pillow.png'
-import baabaeSunflowerImg from './assets/images/baabae_sunflower.png'
-
-import saladImg from './assets/images/salad.png'
-import bombImg from './assets/images/bomb.png'
-import microphoneImg from './assets/images/microphone.png'
-import dacapoImg from './assets/images/dacapo.png'
-import schneiderImg from './assets/images/schneider.png'
-import cutePotionImg from './assets/images/cute_potion.png'
-import boiledEddSukiImg from './assets/images/boiled_egg_suki.png'
-import baabaePillowImg from './assets/images/baabae_pillow.png'
-import sunflowerImg from './assets/images/sunflower.png'
-
 interface GiftConfigValueType {
   baabaeImg: string
   giftImg: string
@@ -49,8 +29,8 @@ interface GiftConfigType {
 
 export const GIFT_CONFIG: GiftConfigType = {
   salad: {
-    baabaeImg: baabaeSaladImg,
-    giftImg: saladImg,
+    baabaeImg: './assets/images/baabae_salad.png',
+    giftImg: './assets/images/salad.png',
     title: 'ผักสลัด',
     description:
       'ผักสลัดหน้าโบสถ์ที่ปลูกและปรุงรสโดยนายน้อย\nให้ของขวัญเป็นผักเพื่อสานฝันสร้างตู้สลัดบาร์ให้บาเบล',
@@ -65,8 +45,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   bomb: {
-    baabaeImg: baabaeBombImg,
-    giftImg: bombImg,
+    baabaeImg: './assets/images/baabae_bomb.png',
+    giftImg: './assets/images/bomb.png',
     title: 'ระเบิด',
     selectedTitle: 'ระเบิดบาเบล Beam!',
     description:
@@ -82,8 +62,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   microphone: {
-    baabaeImg: baabaeMicrophoneImg,
-    giftImg: microphoneImg,
+    baabaeImg: './assets/images/baabae_microphone.png',
+    giftImg: './assets/images/microphone.png',
     title: 'ไมโครโฟน',
     description:
       'ไมโครโฟนขยายเสียงไพเราะแบบหูเคลือบทอง\nอยากให้บาเบลมั่นใจในเสียงตัวเอง เพราะเสียงบาเบลมีเสน่ห์มาก',
@@ -98,8 +78,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   dacapo: {
-    baabaeImg: baabaeDacapoImg,
-    giftImg: dacapoImg,
+    baabaeImg: './assets/images/baabae_dacapo.png',
+    giftImg: './assets/images/dacapo.png',
     title: 'น้องเจี๊ยบ',
     description:
       'ให้น้องเจี๊ยบเป็นของขวัญ ดากะโปะจะสามารถเป็นได้ทั้งเพื่อน\nน้องชาย และอาหารสำรอง ดื้อเมื่อไหร่จับกินได้เลย',
@@ -114,8 +94,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   schneider: {
-    baabaeImg: baabaeSchneiderImg,
-    giftImg: schneiderImg,
+    baabaeImg: './assets/images/baabae_schneider.png',
+    giftImg: './assets/images/schneider.png',
     title: 'พี่ชไน',
     description:
       'ให้ชไนเดอร์เป็นของขวัญ จารย์จะสามารถเป็น Comfort zone\nให้บาเบลได้ และสามารถเป็นอาหารสำรองได้เช่นกัน',
@@ -130,8 +110,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   cute_potion: {
-    baabaeImg: baabaeCutePotionImg,
-    giftImg: cutePotionImg,
+    baabaeImg: './assets/images/baabae_cute_potion.png',
+    giftImg: './assets/images/cute_potion.png',
     title: 'โพชั่น',
     selectedTitle: 'โพชั่นความน่ารัก',
     description:
@@ -147,8 +127,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   boiled_egg_suki: {
-    baabaeImg: baabaeBoiledEggSukiImg,
-    giftImg: boiledEddSukiImg,
+    baabaeImg: './assets/images/baabae_boiled_egg_suki.png',
+    giftImg: './assets/images/boiled_egg_suki.png',
     title: 'สุกี้ไข่ต้ม',
     description:
       'สุกี้ไข่ต้มตัวนี้สามารถช่วยบาเบลเฝ้าโบสถ์ได้ น้องไม่ดุ\nน่ารักใจดี และช่วยอยู่เป็นเพื่อนบาแบ๊ะในวันที่นายน้อยไม่ว่างได้',
@@ -163,8 +143,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   baabae_pillow: {
-    baabaeImg: baabaeBaabaePillowImg,
-    giftImg: baabaePillowImg,
+    baabaeImg: './assets/images/baabae_baabae_pillow.png',
+    giftImg: './assets/images/baabae_pillow.png',
     title: 'หมอนแบ๊ะ',
     description:
       'นายน้อยที่ชอบนอน หมอนบาเบ๊ะจะทำให้บาเบลหลับสบายทั้งวัน\nไม่ว่าจะนอนเช้า กลางวัน เย็น หรือตลอดทั้งวัน~',
@@ -179,8 +159,8 @@ export const GIFT_CONFIG: GiftConfigType = {
     },
   },
   sunflower: {
-    baabaeImg: baabaeSunflowerImg,
-    giftImg: sunflowerImg,
+    baabaeImg: './assets/images/baabae_sunflower.png',
+    giftImg: './assets/images/sunflower.png',
     title: 'ทานตะวัน',
     selectedTitle: 'ดอกทานตะวัน',
     description:

@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 import ReactMasonryList from 'react-masonry-list'
 
-import background from '../../assets/images/background.png'
 import Button from '../../components/Button'
 
 export const Wrapper = styled.div`
   min-height: 100vh;
-  background-image: url(${background});
+  background-image: url(./assets/images/background.png);
   background-position-x: center;
 `
 
