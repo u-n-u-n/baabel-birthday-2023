@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage'
 import GiftPage from './pages/GiftPage'
 import WishPage from './pages/WishPage'
 import { GIFT_CONFIG } from './configs'
+import { DatabaseProvider } from './contexts/database'
 
 const theme = createStyledBreakpointsTheme()
 
@@ -18,17 +19,19 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      {page === 'landingPage' ? (
-        <LandingPage setPage={setPage} />
-      ) : page === 'giftPage' ? (
-        <GiftPage
-          selectedGift={selectedGift}
-          setSelectedGift={setSelectedGift}
-          setPage={setPage}
-        />
-      ) : page === 'wishPage' ? (
-        <WishPage selectedGift={selectedGift} setPage={setPage} />
-      ) : null}
+      <DatabaseProvider>
+        {page === 'landingPage' ? (
+          <LandingPage setPage={setPage} />
+        ) : page === 'giftPage' ? (
+          <GiftPage
+            selectedGift={selectedGift}
+            setSelectedGift={setSelectedGift}
+            setPage={setPage}
+          />
+        ) : page === 'wishPage' ? (
+          <WishPage selectedGift={selectedGift} setPage={setPage} />
+        ) : null}
+      </DatabaseProvider>
     </ThemeProvider>
   )
 }

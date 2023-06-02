@@ -11,23 +11,26 @@ import {
 } from './styled'
 
 interface CardProps {
+  id: string
   gift: keyof typeof GIFT_CONFIG
-  title: string
-  description: string
-  datetime: Date
+  senderName: string
+  wish: string
+  timestamp: number
 }
 
-const Card = ({ gift, title, description, datetime }: CardProps) => {
+const Card = ({ id, gift, senderName, wish, timestamp }: CardProps) => {
+  const datetime = new Date(timestamp)
+
   return (
-    <Wrapper>
+    <Wrapper id={id}>
       <Header>
         <Sender>
           <BaabaeMini src={GIFT_CONFIG[gift].baabaeImg} alt={gift} />
-          <Title color={GIFT_CONFIG[gift].colors.text}>{title}</Title>
+          <Title color={GIFT_CONFIG[gift].colors.text}>{senderName}</Title>
         </Sender>
         <Gift src={GIFT_CONFIG[gift].giftImg} alt={gift} />
       </Header>
-      <Description>{description}</Description>
+      <Description>{wish}</Description>
       <DateAndTime>
         <div>
           {datetime.toLocaleDateString('th-TH', {

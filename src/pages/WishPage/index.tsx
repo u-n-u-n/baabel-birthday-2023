@@ -5,6 +5,7 @@ import {
   MAX_SENDER_NAME_LENGTH,
   MAX_WISH_LENGTH,
 } from '../../configs'
+import { useDatabaseContext } from '../../contexts/database'
 
 import {
   Wrapper,
@@ -25,11 +26,13 @@ interface WishPageProps {
 }
 
 const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
+  const { createWish } = useDatabaseContext()
   const [senderName, setSenderName] = useState('')
   const [wish, setWish] = useState('')
 
   const onSubmit = () => {
     if (senderName && wish) {
+      createWish({ gift: selectedGift, senderName, wish })
       setPage('landingPage')
     }
   }
