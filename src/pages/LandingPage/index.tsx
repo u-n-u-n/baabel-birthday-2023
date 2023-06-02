@@ -1,5 +1,6 @@
 import { useTheme } from 'styled-components'
 import { useMediaQuery } from 'styled-breakpoints/use-media-query'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 import { useDatabaseContext } from '../../contexts/database'
 import { GIFT_CONFIG } from '../../configs'
@@ -24,11 +25,12 @@ const LandingPage = ({ setPage }: LandingPageProps) => {
   const isMobile = useMediaQuery(theme!.breakpoints.down('sm'))
   const isTablet = useMediaQuery(theme!.breakpoints.between('sm', 'lg'))
   const { stats, wishes } = useDatabaseContext()
+  const [autoAnimate] = useAutoAnimate()
 
   return (
     <Wrapper>
       <Header />
-      <TagList>
+      <TagList ref={autoAnimate}>
         {Object.keys(GIFT_CONFIG)
           .sort(
             (a, b) =>
