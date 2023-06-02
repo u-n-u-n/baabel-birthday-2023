@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Button from '../../components/Button'
 
@@ -28,6 +28,12 @@ interface BackButtonProps {
 interface ConfirmButtonProps {
   color: [string, string]
 }
+
+const mainGiftKeyframes = keyframes`
+  0%   { top: -5px; }
+  50%  { top: 5px; }
+  100% { top: -5px; }
+`
 
 export const Wrapper = styled.div<WrapperProps>`
   display: flex;
@@ -64,6 +70,8 @@ export const Title = styled.div.attrs({
 export const MainGift = styled.img`
   width: 160px;
   margin: 24px 0;
+  position: relative;
+  animation: ${mainGiftKeyframes} 1.5s ease-in-out infinite;
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     margin: 16px 0;
