@@ -8,6 +8,7 @@ import {
 
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, set, push, onValue } from 'firebase/database'
+import { getAnalytics, logEvent } from 'firebase/analytics'
 
 import { GIFT_CONFIG } from '../configs'
 
@@ -24,6 +25,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
+const analytics = getAnalytics(app)
+
+logEvent(analytics, 'page_view')
 
 interface DatabaseProviderProps {
   children: ReactNode
