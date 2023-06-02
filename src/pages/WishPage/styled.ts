@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import Button from '../../../src/components/Button'
 
@@ -29,6 +29,12 @@ interface ConfirmButtonProps {
   disabled: boolean
   disabledColor: string
 }
+
+const baabaeKeyframes = keyframes`
+  0%   { transform: rotate(-2deg); }
+  50%  { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+`
 
 const getFormFieldStyles = (props: FormFieldProps) => css`
   font-family: 'MN Luk Chup' !important;
@@ -91,6 +97,8 @@ export const Baabae = styled.img`
   width: 230px;
   margin-top: 24px;
   margin-bottom: -54px;
+  transform-origin: bottom center;
+  animation: ${baabaeKeyframes} 2s ease-in-out infinite;
 `
 
 export const FormWrapper = styled.div`
@@ -98,6 +106,8 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   max-width: 500px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 `
 
 export const SenderName = styled.input<FormFieldProps>`
