@@ -1,4 +1,35 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const baabaeImage1Keyframes = keyframes`
+  0%   { top: 436px; }
+  50%  { top: 436px; }
+  75%  { top: 410px; }
+  100% { top: 436px; }
+`
+
+const baabaeImage2Keyframes = keyframes`
+  0%   { left: 186px; }
+  50%  { left: 195px; }
+  100% { left: 186px; }
+`
+
+const baabaeImage7Keyframes = keyframes`
+  0%   { transform: rotate(-1deg); }
+  50%  { transform: rotate(1deg); }
+  100% { transform: rotate(-1deg); }
+`
+
+const baabaeImage8Keyframes = keyframes`
+  0%   { top: 188px; left: 872px; }
+  50%  { top: 190px; left: 870px; }
+  100% { top: 188px; left: 872px; }
+`
+
+const baabaeImage10Keyframes = keyframes`
+  0%   { transform: rotate(-2deg); }
+  50%  { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+`
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -94,11 +125,13 @@ export const BaabaeImage = styled.img`
 `
 
 export const BaabaeImage1 = styled(BaabaeImage)`
+  animation: ${baabaeImage1Keyframes} 2s ease-in-out infinite;
   top: 436px;
   left: 262px;
 `
 
 export const BaabaeImage2 = styled(BaabaeImage)`
+  animation: ${baabaeImage2Keyframes} 2s ease-in-out infinite;
   top: 528px;
   left: 186px;
 `
@@ -124,16 +157,21 @@ export const BaabaeImage6 = styled(BaabaeImage)`
 `
 
 export const BaabaeImage7 = styled(BaabaeImage)`
+  animation: ${baabaeImage7Keyframes} 2s ease-in-out infinite;
+  transform-origin: bottom left;
   top: 524px;
   left: 600px;
 `
 
 export const BaabaeImage8 = styled(BaabaeImage)`
+  animation: ${baabaeImage8Keyframes} 2s ease-in-out infinite;
   top: 188px;
   left: 872px;
 `
 
 export const BaabaeImage10 = styled(BaabaeImage)`
+  animation: ${baabaeImage10Keyframes} 2s ease-in-out infinite;
+  transform-origin: bottom right;
   top: 492px;
   left: 966px;
 `
