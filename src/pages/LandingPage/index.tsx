@@ -5,11 +5,11 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { useDatabaseContext } from '../../contexts/database'
 import { GIFT_CONFIG } from '../../configs'
 
+import Header from './components/Header'
 import Tag from './components/Tag'
 import Card from './components/Card'
 import {
   Wrapper,
-  Header,
   TagList,
   CardList,
   ButtonWrapper,

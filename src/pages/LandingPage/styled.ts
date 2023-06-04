@@ -9,16 +9,6 @@ export const Wrapper = styled.div`
   background-position-x: center;
 `
 
-export const Header = styled.div`
-  height: 350px;
-  background-color: #f8cbcb;
-  margin-bottom: 32px;
-
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    margin-bottom: 16px;
-  }
-`
-
 export const TagList = styled.div`
   width: fit-content;
   max-width: 100%;
