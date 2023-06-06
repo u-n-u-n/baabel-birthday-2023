@@ -37,12 +37,14 @@ const Card = ({ id, gift, senderName, wish, timestamp }: CardProps) => {
             year: 'numeric',
             month: 'short',
             day: 'numeric',
+            timeZone: 'Asia/Bangkok',
           })}
         </div>
         <div>
           {datetime.toLocaleTimeString('th-TH', {
             hour: '2-digit',
             minute: '2-digit',
+            timeZone: 'Asia/Bangkok',
           })}{' '}
           น.
         </div>
