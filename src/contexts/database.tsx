@@ -2,12 +2,13 @@ import {
   ReactNode,
   createContext,
   useContext,
-  useEffect,
+  useMemo,
   useState,
+  useEffect,
 } from 'react'
 
 import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, set, push, onValue } from 'firebase/database'
+import { getDatabase, ref, push, onValue } from 'firebase/database'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
 import { GIFT_CONFIG } from '../configs'
@@ -64,14 +65,22 @@ const DatabaseContext = createContext<DatabaseContextValue>(
 )
 
 export const DatabaseProvider = ({ children }: DatabaseProviderProps) => {
-  const [stats, setStats] = useState<Stats>({})
   const [wishes, setWishes] = useState<Wish[]>([])
 
-  const increaseStat = (gift: keyof typeof GIFT_CONFIG) => {
-    set(ref(db, `stats/${gift}`), {
-      amount: (stats[gift]?.amount ?? 0) + 1,
-    })
-  }
+  const stats = useMemo(
+    () =>
+      wishes.reduce(
+        (obj, wish) => ({
+          ...obj,
+          [wish.gift]: {
+            ...obj[wish.gift],
+            amount: (obj[wish.gift]?.amount ?? 0) + 1,
+          },
+        }),
+        {} as Stats
+      ),
+    [wishes]
+  )
 
   const createWish = ({ gift, senderName, wish }: CreateWishProps) => {
     push(ref(db, 'wishes'), {
@@ -80,15 +89,7 @@ export const DatabaseProvider = ({ children }: DatabaseProviderProps) => {
       wish,
       timestamp: Date.now(),
     })
-    increaseStat(gift)
   }
-
-  useEffect(() => {
-    onValue(ref(db, 'stats'), (snapshot) => {
-      const data = snapshot.val() as Stats
-      setStats(data ?? {})
-    })
-  }, [])
 
   useEffect(() => {
     onValue(ref(db, 'wishes'), (snapshot) => {
