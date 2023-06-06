@@ -99,7 +99,7 @@ export const DatabaseProvider = ({ children }: DatabaseProviderProps) => {
             .map(([key, value]) => {
               return { id: key, ...(value as any) } as Wish
             })
-            .sort((a, b) => b.timestamp - a.timestamp)
+            .sort((a, b) => a.timestamp - b.timestamp)
         : []
       setWishes(results)
     })
