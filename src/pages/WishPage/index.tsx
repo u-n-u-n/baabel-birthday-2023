@@ -20,6 +20,8 @@ import {
   ConfirmButton,
 } from './styled'
 
+const isEnableCreateCard = false
+
 interface WishPageProps {
   selectedGift: keyof typeof GIFT_CONFIG
   setPage: (page: string) => void
@@ -83,7 +85,7 @@ const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
                 GIFT_CONFIG[selectedGift].colors.buttonLeft,
                 GIFT_CONFIG[selectedGift].colors.buttonRight,
               ]}
-              disabled={!senderName || !wish}
+              disabled={!isEnableCreateCard || !senderName || !wish}
               disabledColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
               onClick={onSubmit}
             >
