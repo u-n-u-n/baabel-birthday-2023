@@ -20,15 +20,13 @@ import {
   ConfirmButton,
 } from './styled'
 
-const isEnableCreateCard = false
-
 interface WishPageProps {
   selectedGift: keyof typeof GIFT_CONFIG
   setPage: (page: string) => void
 }
 
 const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
-  const { createWish } = useDatabaseContext()
+  const { isAllowCreateNewWish, createWish } = useDatabaseContext()
   const [senderName, setSenderName] = useState('')
   const [wish, setWish] = useState('')
 
@@ -85,7 +83,7 @@ const WishPage = ({ selectedGift, setPage }: WishPageProps) => {
                 GIFT_CONFIG[selectedGift].colors.buttonLeft,
                 GIFT_CONFIG[selectedGift].colors.buttonRight,
               ]}
-              disabled={!isEnableCreateCard || !senderName || !wish}
+              disabled={!isAllowCreateNewWish || !senderName || !wish}
               disabledColor={GIFT_CONFIG[selectedGift].colors.mainBackground}
               onClick={onSubmit}
             >

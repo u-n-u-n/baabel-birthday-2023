@@ -8,11 +8,13 @@ import {
 } from 'react'
 
 import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, push, onValue } from 'firebase/database'
+import { getDatabase, ref, push, onValue, Database } from 'firebase/database'
 import { getAnalytics, logEvent } from 'firebase/analytics'
 
 import { GIFT_CONFIG } from '../configs'
+import dumpDatabase from '../database.json'
 
+const isFirebaseEnabled = import.meta.env.VITE_FIREBASE_ENABLED === 'true'
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -24,11 +26,15 @@ const firebaseConfig = {
   databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
 }
 
-const app = initializeApp(firebaseConfig)
-const db = getDatabase(app)
-const analytics = getAnalytics(app)
+let db: Database | null = null
+if (isFirebaseEnabled) {
+  const app = initializeApp(firebaseConfig)
+  const analytics = getAnalytics(app)
 
-logEvent(analytics, 'page_view')
+  db = getDatabase(app)
+
+  logEvent(analytics, 'page_view')
+}
 
 interface DatabaseProviderProps {
   children: ReactNode
@@ -55,6 +61,7 @@ interface CreateWishProps {
 }
 
 interface DatabaseContextValue {
+  isAllowCreateNewWish: boolean
   stats: Stats
   wishes: Wish[]
   createWish: (props: CreateWishProps) => void
@@ -83,7 +90,9 @@ export const DatabaseProvider = ({ children }: DatabaseProviderProps) => {
   )
 
   const createWish = ({ gift, senderName, wish }: CreateWishProps) => {
-    push(ref(db, 'wishes'), {
+    if (!isFirebaseEnabled) return
+
+    push(ref(db!, 'wishes'), {
       gift,
       senderName,
       wish,
@@ -91,22 +100,37 @@ export const DatabaseProvider = ({ children }: DatabaseProviderProps) => {
     })
   }
 
+  const updateWishes = (data: any) => {
+    const results = data
+      ? Object.entries(data)
+          .map(([key, value]) => {
+            return { id: key, ...(value as any) } as Wish
+          })
+          .sort((a, b) => a.timestamp - b.timestamp)
+      : []
+    setWishes(results)
+  }
+
   useEffect(() => {
-    onValue(ref(db, 'wishes'), (snapshot) => {
-      const data = snapshot.val()
-      const results = data
-        ? Object.entries(data)
-            .map(([key, value]) => {
-              return { id: key, ...(value as any) } as Wish
-            })
-            .sort((a, b) => a.timestamp - b.timestamp)
-        : []
-      setWishes(results)
-    })
+    if (isFirebaseEnabled) {
+      onValue(ref(db!, 'wishes'), (snapshot) => {
+        const data = snapshot.val()
+        updateWishes(data)
+      })
+    } else {
+      updateWishes(dumpDatabase.wishes)
+    }
   }, [])
 
   return (
-    <DatabaseContext.Provider value={{ stats, wishes, createWish }}>
+    <DatabaseContext.Provider
+      value={{
+        isAllowCreateNewWish: isFirebaseEnabled,
+        stats,
+        wishes,
+        createWish,
+      }}
+    >
       {children}
     </DatabaseContext.Provider>
   )
